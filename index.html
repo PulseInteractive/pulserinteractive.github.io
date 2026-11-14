@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse Interactive | Creative Coding &amp; 3D Web Visuals</title>
+  <style>
+    :root {
+      --bg: #070b14;
+      --card: #0f172a;
+      --border: #1e293b;
+      --accent: #38bdf8;
+      --accent2: #818cf8;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: 0.04em;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header {
+      text-align: center;
+      padding: 64px 20px 60px;
+      background: radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 60%);
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(56,189,248,0.12);
+      border: 1px solid rgba(56,189,248,0.3);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
+    header p { max-width: 620px; margin: 0 auto 28px; color: var(--muted); font-size: 1.1rem; }
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #040812;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); opacity: 0.92; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 60px 20px; }
+    .section-title { font-size: 1.6rem; margin-bottom: 8px; }
+    .section-sub { color: var(--muted); margin-bottom: 36px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+    .card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; }
+    .card-link {
+      display: inline-block;
+      text-align: center;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+    .card-link:hover { background: var(--accent); color: #040812; border-color: var(--accent); }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">PULSE INTERACTIVE</div>
+    <a href="#projects" style="color: var(--muted); text-decoration: none; font-size: 0.95rem; font-weight: 600;">Demos</a>
+  </nav>
+
+  <header>
+    <div class="badge">AVAILABLE FOR FREELANCE PROJECTS</div>
+    <h1>Interactive Web Visuals, 3D &amp; Custom Browser Games</h1>
+    <p>Pulse Interactive builds 60 FPS interactive backgrounds, data visualizations, 3D product configurators, and arcade web games using p5.js and WebGL.</p>
+    <a href="#projects" class="btn">Explore Live Demos</a>
+  </header>
+
+  <main class="container" id="projects">
+    <h2 class="section-title">Featured Interactive Demos</h2>
+    <p class="section-sub">Click any project below to test the live interactive build directly in your browser.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div>
+          <div class="tag">3D WebGL • E-Commerce UI</div>
+          <h3>Field Audio — Model H1</h3>
+          <p>Real-time 3D product configurator featuring dynamic material finishes, exploded hardware view, and auto-spin controls.</p>
+        </div>
+        <a href="https://editor.p5js.org/PulseInteractive/full/imGrssAiO" target="_blank" class="card-link">Launch Live Demo →</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="tag">Interactive Web • Hero Section</div>
+          <h3>Routed</h3>
+          <p>Responsive mouse-tracking particle network with click ripple shockwaves layered cleanly behind modern SaaS typography.</p>
+        </div>
+        <a href="https://editor.p5js.org/PulseInteractive/full/M_3HnVYQ-" target="_blank" class="card-link">Launch Live Demo →</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="tag">Data Visualization • Dashboard</div>
+          <h3>SectorMap</h3>
+          <p>Animated multi-year market cap visualizer with smooth state transitions, node dependencies, and live hover metrics.</p>
+        </div>
+        <a href="https://editor.p5js.org/PulseInteractive/full/MTZd0gH1q" target="_blank" class="card-link">Launch Live Demo →</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="tag">3D WebGL • Game Systems</div>
+          <h3>Voxel Knight</h3>
+          <p>Full 3D browser RPG complete with save/load persistence, 16-node skill tree, zone progression, and upgrade economy.</p>
+        </div>
+        <a href="https://editor.p5js.org/PulseInteractive/full/2UjxyuZ49" target="_blank" class="card-link">Launch Live Demo →</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="tag">2D Arcade • Custom Effects</div>
+          <h3>Event Horizon</h3>
+          <p>High-intensity space shooter featuring black-hole grid warping, neon glow particles, floating damage numbers, and sound controls.</p>
+        </div>
+        <a href="https://editor.p5js.org/PulseInteractive/full/A5Z1ySyRk" target="_blank" class="card-link">Launch Live Demo →</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="tag">Mobile &amp; Web • Arcade</div>
+          <h3>Polyarity</h3>
+          <p>Fast-paced one-button gravity runner built for instant desktop and mobile engagement with high-score tracking.</p>
+        </div>
+        <a href="https://editor.p5js.org/PulseInteractive/full/xh6OL7pZY" target="_blank" class="card-link">Launch Live Demo →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Pulse Interactive • Built with p5.js, WebGL &amp; HTML/CSS</p>
+  </footer>
+
+</body>
+</html>
+
+

@@ -3,106 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pulse Interactive | Portfolio</title>
+    <title>Pulse Interactive | Custom 2D Browser Games & Web Dev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --accent-color: #58a6ff;
-            --text-color: #c9d1d9;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 27, 34, 0.7);
+            --border-color: rgba(88, 166, 255, 0.2);
+            --accent-cyan: #00f0ff;
+            --accent-purple: #b026ff;
+            --accent-green: #00ff66;
+            --text-main: #f0f6fc;
             --text-muted: #8b949e;
-            --border-color: #30363d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
+            color: var(--text-main);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 240, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(176, 38, 255, 0.05) 0%, transparent 40%);
             padding: 40px 20px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #000;
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 15px;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
         }
 
         header p {
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
         }
 
         .project-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
         }
 
-        .project-card h3 {
-            margin-top: 0;
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-info h3 {
             color: #ffffff;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .project-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
 
         .links {
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 12px;
         }
 
         .btn {
             flex: 1;
             text-align: center;
-            background-color: #21262d;
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
-            color: var(--accent-color);
-            padding: 8px 12px;
-            border-radius: 6px;
+            color: var(--text-main);
+            padding: 10px 16px;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 500;
-            transition: background-color 0.2s ease;
+            font-weight: 600;
+            transition: all 0.2s ease;
         }
 
         .btn:hover {
-            background-color: #30363d;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-main);
         }
 
         .btn.primary {
-            background-color: #238636;
-            color: #ffffff;
-            border-color: rgba(240,246,252,0.1);
+            background: linear-gradient(135deg, var(--accent-cyan), #0070f3);
+            color: #0b0f19;
+            border: none;
+            font-weight: 700;
         }
 
         .btn.primary:hover {
-            background-color: #2ea043;
+            filter: brightness(1.15);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
         }
     </style>
 </head>
@@ -110,133 +218,147 @@
 
     <div class="container">
         <header>
+            <div class="logo-badge">Independent Studio</div>
             <h1>Pulse Interactive</h1>
-            <p>Custom 2D Browser Games & Interactive Web Solutions</p>
+            <p>Crafting lightning-fast 2D browser games, interactive web apps, and immersive p5.js experiences.</p>
+            <div class="tech-stack">
+                <span class="pill">JavaScript</span>
+                <span class="pill">p5.js</span>
+                <span class="pill">HTML5 Canvas</span>
+                <span class="pill">TypeScript</span>
+                <span class="pill">WebGL</span>
+            </div>
         </header>
+
+        <h2 class="section-title">Featured Projects & Games</h2>
 
         <div class="project-grid">
 
-            <!-- 1. Polyarity -->
+            <!-- 1. Spaceship Runner -->
             <div class="project-card">
-                <div>
-                    <h3>Polyarity</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Interactive browser experience built with p5.js.</p>
+                <div class="project-info">
+                    <h3>Spaceship Runner</h3>
+                    <p>Fast-paced 2D arcade runner featuring dynamic obstacles, smooth canvas physics, and retro aesthetics.</p>
                 </div>
                 <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/xh6OL7pZY" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/xh6OL7pZY" target="_blank" class="btn primary">Play / View</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/sketches/aejLt2gv1" target="_blank" class="btn">Code</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/full/aejLt2gv1" target="_blank" class="btn primary">Play Game</a>
                 </div>
             </div>
 
-            <!-- 2. Event Horizon -->
+            <!-- 2. Polyarity -->
             <div class="project-card">
-                <div>
-                    <h3>Event Horizon</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Interactive browser experience built with p5.js.</p>
+                <div class="project-info">
+                    <h3>Polyarity</h3>
+                    <p>Interactive procedural geometry experience built with custom vector math and p5.js rendering.</p>
                 </div>
                 <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/A5Z1ySyRk" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/A5Z1ySyRk" target="_blank" class="btn primary">Play / View</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/sketches/xh6OL7pZY" target="_blank" class="btn">Code</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/full/xh6OL7pZY" target="_blank" class="btn primary">Launch</a>
                 </div>
             </div>
 
             <!-- 3. Voxel Knight -->
             <div class="project-card">
-                <div>
+                <div class="project-info">
                     <h3>Voxel Knight</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Interactive browser experience built with p5.js.</p>
+                    <p>Retro-inspired browser dungeon crawler with grid movement, combat mechanics, and custom asset rendering.</p>
                 </div>
                 <div class="links">
                     <a href="https://editor.p5js.org/PulseInteractive/sketches/2UjxyuZ49" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/2UjxyuZ49" target="_blank" class="btn primary">Play / View</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/full/2UjxyuZ49" target="_blank" class="btn primary">Play Game</a>
                 </div>
             </div>
 
-            <!-- 4. Routed -->
+            <!-- 4. Event Horizon -->
             <div class="project-card">
-                <div>
-                    <h3>Routed</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Interactive browser experience built with p5.js.</p>
+                <div class="project-info">
+                    <h3>Event Horizon</h3>
+                    <p>Physics-based orbital simulation and interactive space puzzle exploring gravitational forces.</p>
                 </div>
                 <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/M_3HnVYQ-" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/M_3HnVYQ-" target="_blank" class="btn primary">Play / View</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/sketches/A5Z1ySyRk" target="_blank" class="btn">Code</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/full/A5Z1ySyRk" target="_blank" class="btn primary">Launch</a>
                 </div>
             </div>
 
-            <!-- 5. SectorMap -->
+            <!-- 5. Music Box -->
             <div class="project-card">
-                <div>
-                    <h3>SectorMap</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Interactive browser experience built with p5.js.</p>
-                </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/MTZd0gH1q" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/MTZd0gH1q" target="_blank" class="btn primary">Play / View</a>
-                </div>
-            </div>
-
-            <!-- 6. Field Audio — Model H1 -->
-            <div class="project-card">
-                <div>
-                    <h3>Field Audio — Model H1</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Interactive browser tool built with p5.js.</p>
-                </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/imGrssAiO" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/imGrssAiO" target="_blank" class="btn primary">Play / View</a>
-                </div>
-            </div>
-
-            <!-- 7. Quiz -->
-            <div class="project-card">
-                <div>
-                    <h3>Quiz</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Interactive browser tool built with p5.js.</p>
-                </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/1T-P6XjUB" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/1T-P6XjUB" target="_blank" class="btn primary">Play / View</a>
-                </div>
-            </div>
-
-            <!-- 8. Music Box -->
-            <div class="project-card">
-                <div>
+                <div class="project-info">
                     <h3>Music Box</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Interactive browser experience built with p5.js.</p>
+                    <p>Interactive web synthesizer and step sequencer built with p5.sound and visual audio reactive feedback.</p>
                 </div>
                 <div class="links">
                     <a href="https://editor.p5js.org/PulseInteractive/sketches/3QCXY-pN8" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/3QCXY-pN8" target="_blank" class="btn primary">Play / View</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/full/3QCXY-pN8" target="_blank" class="btn primary">Play / Test</a>
+                </div>
+            </div>
+
+            <!-- 6. Routed -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Routed</h3>
+                    <p>Pathfinding logic puzzle challenging players to connect nodes efficiently under strict constraints.</p>
+                </div>
+                <div class="links">
+                    <a href="https://editor.p5js.org/PulseInteractive/sketches/M_3HnVYQ-" target="_blank" class="btn">Code</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/full/M_3HnVYQ-" target="_blank" class="btn primary">Play Game</a>
+                </div>
+            </div>
+
+            <!-- 7. SectorMap -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>SectorMap</h3>
+                    <p>Procedural sci-fi star system generator and interactive tactical navigation UI.</p>
+                </div>
+                <div class="links">
+                    <a href="https://editor.p5js.org/PulseInteractive/sketches/MTZd0gH1q" target="_blank" class="btn">Code</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/full/MTZd0gH1q" target="_blank" class="btn primary">Launch</a>
+                </div>
+            </div>
+
+            <!-- 8. Field Audio — Model H1 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Field Audio — Model H1</h3>
+                    <p>Skeuomorphic hardware UI simulator built for interactive audio control and web demonstrations.</p>
+                </div>
+                <div class="links">
+                    <a href="https://editor.p5js.org/PulseInteractive/sketches/imGrssAiO" target="_blank" class="btn">Code</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/full/imGrssAiO" target="_blank" class="btn primary">Launch</a>
                 </div>
             </div>
 
             <!-- 9. Interactive Weather Forecast -->
             <div class="project-card">
-                <div>
+                <div class="project-info">
                     <h3>Interactive Weather Forecast</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Interactive web application built with p5.js.</p>
+                    <p>Dynamic particle-based weather visualizer mapping live data into canvas animations.</p>
                 </div>
                 <div class="links">
                     <a href="https://editor.p5js.org/PulseInteractive/sketches/lsIdlpLC8" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/lsIdlpLC8" target="_blank" class="btn primary">Play / View</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/full/lsIdlpLC8" target="_blank" class="btn primary">View App</a>
                 </div>
             </div>
 
-            <!-- 10. Spaceship Runner -->
+            <!-- 10. Quiz -->
             <div class="project-card">
-                <div>
-                    <h3>Spaceship Runner</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Arcade game built with p5.js.</p>
+                <div class="project-info">
+                    <h3>Quiz Application</h3>
+                    <p>Clean state-managed web quiz interface with custom animations and responsive layout.</p>
                 </div>
                 <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/aejLt2gv1" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/aejLt2gv1" target="_blank" class="btn primary">Play / View</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/sketches/1T-P6XjUB" target="_blank" class="btn">Code</a>
+                    <a href="https://editor.p5js.org/PulseInteractive/full/1T-P6XjUB" target="_blank" class="btn primary">View App</a>
                 </div>
             </div>
 
         </div>
+
+        <footer>
+            <p>&copy; 2026 Pulse Interactive. Built with custom HTML5 & p5.js. Available for custom browser game development.</p>
+        </footer>
     </div>
 
 </body>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulse Interactive | Custom 2D Browser Games & Web Dev</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0b0f19;
@@ -12,7 +12,6 @@
             --border-color: rgba(88, 166, 255, 0.2);
             --accent-cyan: #00f0ff;
             --accent-purple: #b026ff;
-            --accent-green: #00ff66;
             --text-main: #f0f6fc;
             --text-muted: #8b949e;
         }
@@ -77,7 +76,25 @@
             color: var(--text-muted);
             font-size: 1.15rem;
             max-width: 600px;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 20px auto;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: #5865F2; /* Discord Blurple */
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s ease, transform 0.2s ease;
+            margin-top: 15px;
+        }
+
+        .contact-btn:hover {
+            background: #4752C4;
+            transform: translateY(-2px);
         }
 
         .tech-stack {
@@ -85,6 +102,7 @@
             justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .pill {
@@ -169,38 +187,20 @@
             margin-bottom: 20px;
         }
 
-        .links {
-            display: flex;
-            gap: 12px;
-        }
-
-        .btn {
-            flex: 1;
+        .play-btn {
+            display: block;
             text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 10px 16px;
+            background: linear-gradient(135deg, var(--accent-cyan), #0070f3);
+            color: #0b0f19;
+            padding: 12px;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 0.95rem;
             transition: all 0.2s ease;
         }
 
-        .btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--text-main);
-        }
-
-        .btn.primary {
-            background: linear-gradient(135deg, var(--accent-cyan), #0070f3);
-            color: #0b0f19;
-            border: none;
-            font-weight: 700;
-        }
-
-        .btn.primary:hover {
+        .play-btn:hover {
             filter: brightness(1.15);
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
         }
@@ -221,6 +221,9 @@
             <div class="logo-badge">Independent Studio</div>
             <h1>Pulse Interactive</h1>
             <p>Crafting lightning-fast 2D browser games, interactive web apps, and immersive p5.js experiences.</p>
+            
+            <a href="https://discord.com/channels/1572072517068259439/1572072518221566064" target="_blank" class="contact-btn">💬 Connect on Discord to Hire</a>
+
             <div class="tech-stack">
                 <span class="pill">JavaScript</span>
                 <span class="pill">p5.js</span>
@@ -230,7 +233,7 @@
             </div>
         </header>
 
-        <h2 class="section-title">Featured Projects & Games</h2>
+        <h2 class="section-title">Playable Portfolio</h2>
 
         <div class="project-grid">
 
@@ -240,10 +243,7 @@
                     <h3>Spaceship Runner</h3>
                     <p>Fast-paced 2D arcade runner featuring dynamic obstacles, smooth canvas physics, and retro aesthetics.</p>
                 </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/aejLt2gv1" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/aejLt2gv1" target="_blank" class="btn primary">Play Game</a>
-                </div>
+                <a href="https://editor.p5js.org/PulseInteractive/full/aejLt2gv1" target="_blank" class="play-btn">🎮 Play Game</a>
             </div>
 
             <!-- 2. Polyarity -->
@@ -252,10 +252,7 @@
                     <h3>Polyarity</h3>
                     <p>Interactive procedural geometry experience built with custom vector math and p5.js rendering.</p>
                 </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/xh6OL7pZY" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/xh6OL7pZY" target="_blank" class="btn primary">Launch</a>
-                </div>
+                <a href="https://editor.p5js.org/PulseInteractive/full/xh6OL7pZY" target="_blank" class="play-btn">🚀 Launch Experience</a>
             </div>
 
             <!-- 3. Voxel Knight -->
@@ -264,10 +261,7 @@
                     <h3>Voxel Knight</h3>
                     <p>Retro-inspired browser dungeon crawler with grid movement, combat mechanics, and custom asset rendering.</p>
                 </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/2UjxyuZ49" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/2UjxyuZ49" target="_blank" class="btn primary">Play Game</a>
-                </div>
+                <a href="https://editor.p5js.org/PulseInteractive/full/2UjxyuZ49" target="_blank" class="play-btn">🎮 Play Game</a>
             </div>
 
             <!-- 4. Event Horizon -->
@@ -276,10 +270,7 @@
                     <h3>Event Horizon</h3>
                     <p>Physics-based orbital simulation and interactive space puzzle exploring gravitational forces.</p>
                 </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/A5Z1ySyRk" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/A5Z1ySyRk" target="_blank" class="btn primary">Launch</a>
-                </div>
+                <a href="https://editor.p5js.org/PulseInteractive/full/A5Z1ySyRk" target="_blank" class="play-btn">🚀 Launch Simulation</a>
             </div>
 
             <!-- 5. Music Box -->
@@ -288,10 +279,7 @@
                     <h3>Music Box</h3>
                     <p>Interactive web synthesizer and step sequencer built with p5.sound and visual audio reactive feedback.</p>
                 </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/3QCXY-pN8" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/3QCXY-pN8" target="_blank" class="btn primary">Play / Test</a>
-                </div>
+                <a href="https://editor.p5js.org/PulseInteractive/full/3QCXY-pN8" target="_blank" class="play-btn">🎵 Test App</a>
             </div>
 
             <!-- 6. Routed -->
@@ -300,10 +288,7 @@
                     <h3>Routed</h3>
                     <p>Pathfinding logic puzzle challenging players to connect nodes efficiently under strict constraints.</p>
                 </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/M_3HnVYQ-" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/M_3HnVYQ-" target="_blank" class="btn primary">Play Game</a>
-                </div>
+                <a href="https://editor.p5js.org/PulseInteractive/full/M_3HnVYQ-" target="_blank" class="play-btn">🎮 Play Game</a>
             </div>
 
             <!-- 7. SectorMap -->
@@ -312,10 +297,7 @@
                     <h3>SectorMap</h3>
                     <p>Procedural sci-fi star system generator and interactive tactical navigation UI.</p>
                 </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/MTZd0gH1q" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/MTZd0gH1q" target="_blank" class="btn primary">Launch</a>
-                </div>
+                <a href="https://editor.p5js.org/PulseInteractive/full/MTZd0gH1q" target="_blank" class="play-btn">🚀 Launch UI</a>
             </div>
 
             <!-- 8. Field Audio — Model H1 -->
@@ -324,10 +306,7 @@
                     <h3>Field Audio — Model H1</h3>
                     <p>Skeuomorphic hardware UI simulator built for interactive audio control and web demonstrations.</p>
                 </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/imGrssAiO" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/imGrssAiO" target="_blank" class="btn primary">Launch</a>
-                </div>
+                <a href="https://editor.p5js.org/PulseInteractive/full/imGrssAiO" target="_blank" class="play-btn">🚀 Launch App</a>
             </div>
 
             <!-- 9. Interactive Weather Forecast -->
@@ -336,10 +315,7 @@
                     <h3>Interactive Weather Forecast</h3>
                     <p>Dynamic particle-based weather visualizer mapping live data into canvas animations.</p>
                 </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/lsIdlpLC8" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/lsIdlpLC8" target="_blank" class="btn primary">View App</a>
-                </div>
+                <a href="https://editor.p5js.org/PulseInteractive/full/lsIdlpLC8" target="_blank" class="play-btn">🌦️ View App</a>
             </div>
 
             <!-- 10. Quiz -->
@@ -348,10 +324,7 @@
                     <h3>Quiz Application</h3>
                     <p>Clean state-managed web quiz interface with custom animations and responsive layout.</p>
                 </div>
-                <div class="links">
-                    <a href="https://editor.p5js.org/PulseInteractive/sketches/1T-P6XjUB" target="_blank" class="btn">Code</a>
-                    <a href="https://editor.p5js.org/PulseInteractive/full/1T-P6XjUB" target="_blank" class="btn primary">View App</a>
-                </div>
+                <a href="https://editor.p5js.org/PulseInteractive/full/1T-P6XjUB" target="_blank" class="play-btn">📝 View App</a>
             </div>
 
         </div>
